@@ -1,5 +1,8 @@
 'use strict';
 
+const mongoose = require('winext-repository').mongoose;
+const Schema = mongoose.Schema;
+
 module.exports = {
   name: 'UserModel',
   attributes: {
@@ -8,6 +11,7 @@ module.exports = {
     email: { type: String },
     password: { type: String },
     permissions: [String],
+    roles: { type: Schema.Types.ObjectId, ref: 'RoleModel' },
     //filter
     slug: { type: String },
     deleted: { type: Boolean, default: false },
